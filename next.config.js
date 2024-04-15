@@ -1,7 +1,8 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  rewrites: async () => {
-    return [
+// next.config.js (ESM format)
+
+export default async function nextConfig() {
+  return {
+    rewrites: async () => [
       {
         source: "/api/:path*",
         destination:
@@ -23,8 +24,6 @@ const nextConfig = {
             ? "http://127.0.0.1:8000/openapi.json"
             : "/api/openapi.json",
       },
-    ];
-  },
-};
-
-module.exports = nextConfig;
+    ],
+  };
+}
